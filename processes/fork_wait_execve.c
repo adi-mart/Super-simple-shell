@@ -1,4 +1,20 @@
-/* Exercise: fork + wait + execve */
-/* Write a program that executes the command ls -l /tmp in 5 different child processes */
-/* Each child should be created by the same process (the father) */
-/* Wait for a child to exit before creating a new child */
+#include <stdio.h>
+#include <unistd.h>
+
+/**
+ * main - execve example
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+
+    printf("Before execve\n");
+    if (execve(argv[0], argv, NULL) == -1)
+    {
+        perror("Error:");
+    }
+    printf("After execve\n");
+    return (0);
+}

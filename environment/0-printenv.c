@@ -1,0 +1,1 @@
+/* Write a program that prints the environment using the global variable environ */
